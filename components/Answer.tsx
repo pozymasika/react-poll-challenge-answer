@@ -65,12 +65,20 @@ export default function Answer({
 
   return (
     <AnswerWrapper onClick={selectChoice}>
-      <AnswerText largest={largest}>
-        {answer.text}
-        {active && <CheckImage src={require('../static/check-circle.svg')} />}
-      </AnswerText>
-      <AnswerText largest={largest}>{percentage}%</AnswerText>
-      <AnswerOverlay pc={percentage + '%'} largest={largest} />
+      {voted ? (
+        <React.Fragment>
+          <AnswerText largest={largest}>
+            {answer.text}
+            {active && (
+              <CheckImage src={require('../static/check-circle.svg')} />
+            )}
+          </AnswerText>
+          <AnswerText largest={largest}>{percentage}%</AnswerText>
+          <AnswerOverlay pc={percentage + '%'} largest={largest} />
+        </React.Fragment>
+      ) : (
+        <AnswerText largest={false}>{answer.text}</AnswerText>
+      )}
     </AnswerWrapper>
   );
 }
