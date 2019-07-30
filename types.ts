@@ -12,3 +12,20 @@ export type QandA = {
 export type QandAsDocument = {
   questions: QandA[];
 };
+
+export type AnswerDocument = {
+  answer: Answer,
+  total: number,
+  largest: boolean | undefined;
+  voted: boolean;
+  onVote: () => void;
+}
+
+export type AnswerOverlayProps = {
+  pc: string;
+  largest: boolean | undefined;
+}
+
+export type AnswerTextProps = {
+  largest: boolean | undefined;
+}
